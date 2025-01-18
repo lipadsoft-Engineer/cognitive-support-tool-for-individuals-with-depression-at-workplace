@@ -30,6 +30,7 @@ function moveTask(taskId, newStatus) {
     }
 }
 
+//display tasks
 function renderTasks() {
     const columns = ['tasks', 'todo', 'in-progress', 'done'];
 
@@ -127,11 +128,13 @@ function showMoodInsight(mood) {
 
     const li = document.createElement('li');
         li.textContent = moodInsights[mood];
+        const audio = new Audio('./media/notification1.wav'); 
+        audio.play();
         moodInsight.appendChild(li);
 
     setTimeout(() => {
         moodInsight.removeChild(li);
-    }, 10000); 
+    }, 15000); 
 }
 
 // Mood Tracking
@@ -162,6 +165,8 @@ function checkNotifications() {
     overdueTasks.forEach(task => {
         const li = document.createElement('li');
         li.textContent = `Task "${task.title}" is overdue!`;
+        const audio = new Audio('./media/notification.wav'); 
+        audio.play();
         notificationList.appendChild(li);
     });
 }
