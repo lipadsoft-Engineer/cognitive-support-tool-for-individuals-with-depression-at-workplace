@@ -2,16 +2,24 @@
 let tasks = [];
 
 function addTask(title, dueDate) {
+    const parsedDueDate = new Date(dueDate);
+    if (isNaN(parsedDueDate.getTime())) {
+        console.error('Invalid due date. Please provide a valid date.');
+        return;
+    }
+
     const task = {
         id: Date.now(),
         title,
         status: 'tasks',
-        dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Due in 1 week
+        dueDate: parsedDueDate,
         createdAt: new Date()
     };
     tasks.push(task);
+
     renderTasks();
     prioritizeTasks();
+    return task;
 }
 
 function moveTask(taskId, newStatus) {
@@ -41,7 +49,7 @@ function renderTasks() {
                 <h3>${task.title}</h3>
                 <p>Due: ${task.dueDate.toLocaleDateString()}</p>
                 <div class="task-actions">
-                    ${prevColumn ? `<button onclick="moveTask(${task.id}, '${prevColumn}')">← ${capitalize(prevColumn)}</button>` : ''}
+                    ${prevColumn ? `<button onclick="moveTask(${task.id}, '${prevColumn}')">← ${capitalize(prevColumn)}</button>` : '<Button onclick="sliceTask">Slice Task</Button>'}
                     ${nextColumn ? `<button onclick="moveTask(${task.id}, '${nextColumn}')">${capitalize(nextColumn)} →</button>` : '<span>✅</span>'}
                 </div>
             `;
@@ -51,7 +59,7 @@ function renderTasks() {
     });
 }
 
-// Helper function to capitalize the first letter of a string
+// Capitalize the first letter of a string
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).replace('-', ' ');
 }
@@ -107,17 +115,25 @@ function logMood(mood) {
         btn.classList.remove('active');
     });
     document.querySelector(`.mood-btn[data-mood="${mood}"]`).classList.add('active');
-    // Here you could also save the mood to local storage or send it to a server
 }
 
 // Event Listeners
 document.getElementById('add-task-btn').addEventListener('click', () => {
-    const input = document.getElementById('new-task-input');
-    if (input.value.trim()) {
-        addTask(input.value.trim());
-        input.value = '';
+    const taskInput = document.getElementById('new-task-input');
+    const dueDateInput = document.getElementById('due-date-input');
+    const taskValue = taskInput.value.trim();
+    const dueDateValue = dueDateInput.value.trim();
+
+    if (taskValue && dueDateValue) {
+        addTask(taskValue, dueDateValue);
+        taskInput.value = '';
+        dueDateInput.value = '';
+        taskInput.focus();
+    } else {
+        alert('Please enter both a task and a valid due date.');
     }
 });
+
 
 document.querySelectorAll('.mood-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -127,4 +143,4 @@ document.querySelectorAll('.mood-btn').forEach(btn => {
 
 // Initial render and periodic updates
 renderTasks();
-setInterval(checkNotifications, 60000); // Check for notifications every minute
+setInterval(checkNotifications, 30000);

@@ -30,6 +30,7 @@ main {
     display: flex;
     padding: 2rem;
     gap: 2rem;
+    overflow-x:auto;
 }
 
 #task-board {
@@ -44,10 +45,18 @@ aside {
     margin-bottom: 1rem;
 }
 
-#new-task-input {
+#new-task-input{
     padding: 0.5rem;
-    width: 70%;
+    width: 50%;
 }
+#due-date-input {
+    padding: 0.4rem;
+    width: 20%;
+}
+ .date-label{
+    border: 0.5px solid black;
+    padding: 0.4rem;
+ }
 
 #add-task-btn {
     padding: 0.5rem 1rem;
