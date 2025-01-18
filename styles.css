@@ -117,6 +117,7 @@ aside {
 #mood-buttons {
     display: flex;
     justify-content: space-between;
+    margin: 0 .1rem;
 }
 
 .mood-btn {
