@@ -4,7 +4,6 @@ let tasks = [];
 function addTask(title, dueDate) {
     const parsedDueDate = new Date(dueDate);
     if (isNaN(parsedDueDate.getTime())) {
-        console.error('Invalid due date. Please provide a valid date.');
         return;
     }
 
@@ -91,9 +90,9 @@ function calculateTaskScore(task) {
 
 // mood tracking
 function showMoodPopup() {
-    const popup = document.getElementById('popup');
     const saveButton = document.getElementById('save-mood-btn');
     const closeButton = document.getElementById('close-popup-btn');
+    const moodSelect = document.getElementById('mood-select');
 
     popup.style.display = 'block';
 
@@ -106,14 +105,35 @@ function showMoodPopup() {
     });
 
     saveButton.addEventListener('click', () => {
-        const moodSelect = document.getElementById('mood-select');
         const selectedMood = moodSelect.value;
 
-        console.log(`Mood saved: ${selectedMood}`);
+        showMoodInsight(selectedMood);
 
         popup.style.display = 'none';
     });
 }
+
+const moodInsights = {
+    "Happy": "You’re feeling positive and content. Keep doing activities that bring you joy and express gratitude.",
+    "Sad": "You may feel low today. Take a break, talk to someone, or engage in something uplifting like music or a walk.",
+    "Neutral": "You’re in a balanced state. Try something creative or engaging, or rest to recharge.",
+    "Stressed": "You might feel overwhelmed. Take deep breaths, prioritize tasks, and take breaks when needed.",
+    "Excited": "You’re full of energy. Channel this excitement into productive tasks or fun activities to keep the momentum going."
+};
+
+function showMoodInsight(mood) {
+    const notification = document.getElementById('notifications');
+    const moodInsight = document.getElementById('notification-list');
+
+    const li = document.createElement('li');
+        li.textContent = moodInsights[mood];
+        moodInsight.appendChild(li);
+
+    setTimeout(() => {
+        moodInsight.removeChild(li);
+    }, 10000); 
+}
+
 // Mood Tracking
 let currentMood = null;
 
@@ -124,11 +144,10 @@ function logMood(mood) {
     });
     document.querySelector(`.mood-btn[data-mood="${mood}"]`).classList.add('active');
 }
-
-
 // Trigger the mood popup every hour
 setInterval(showMoodPopup, 3600000);
 showMoodPopup();
+
 
 // Reminders & Notifications
 function checkNotifications() {
@@ -174,4 +193,4 @@ document.querySelectorAll('.mood-btn').forEach(btn => {
 
 // Initial render and periodic updates
 renderTasks();
-setInterval(checkNotifications, 30000);
+setInterval(checkNotifications, 10000);
