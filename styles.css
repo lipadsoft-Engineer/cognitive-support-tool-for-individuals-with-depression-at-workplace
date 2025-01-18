@@ -51,7 +51,7 @@ aside {
 
 #add-task-btn {
     padding: 0.5rem 1rem;
-    background-color: #333;
+    background-color: #262949;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -89,8 +89,9 @@ aside {
 }
 
 .task-actions button {
-    padding: 0.25rem 0.5rem;
-    background-color: #333;
+    padding: 0.2rem 0.3rem;
+    margin: 0 .1rem;
+    background-color: #262949;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -135,7 +136,7 @@ aside {
 }
 
 footer{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100vw;
     padding: .5rem 0;

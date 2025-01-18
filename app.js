@@ -1,11 +1,11 @@
 // Task management
 let tasks = [];
 
-function addTask(title) {
+function addTask(title, dueDate) {
     const task = {
         id: Date.now(),
         title,
-        status: 'todo',
+        status: 'tasks',
         dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Due in 1 week
         createdAt: new Date()
     };
@@ -24,26 +24,38 @@ function moveTask(taskId, newStatus) {
 }
 
 function renderTasks() {
-    const columns = ['todo', 'in-progress', 'done'];
-    columns.forEach(status => {
+    const columns = ['tasks', 'todo', 'in-progress', 'done'];
+
+    columns.forEach((status, index) => {
         const column = document.querySelector(`#${status} .task-list`);
         column.innerHTML = '';
-        tasks.filter(t => t.status === status).forEach(task => {
+
+        tasks.filter(task => task.status === status).forEach(task => {
             const taskElement = document.createElement('div');
             taskElement.className = 'task';
+
+            const prevColumn = index > 0 ? columns[index - 1] : null;
+            const nextColumn = index < columns.length - 1 ? columns[index + 1] : null;
+
             taskElement.innerHTML = `
                 <h3>${task.title}</h3>
                 <p>Due: ${task.dueDate.toLocaleDateString()}</p>
                 <div class="task-actions">
-                    ${status !== 'todo' ? `<button onclick="moveTask(${task.id}, 'todo')">← To-Do</button>` : ''}
-                    ${status !== 'in-progress' ? `<button onclick="moveTask(${task.id}, 'in-progress')">In Progress</button>` : ''}
-                    ${status !== 'done' ? `<button onclick="moveTask(${task.id}, 'done')">Done →</button>` : ''}
+                    ${prevColumn ? `<button onclick="moveTask(${task.id}, '${prevColumn}')">← ${capitalize(prevColumn)}</button>` : ''}
+                    ${nextColumn ? `<button onclick="moveTask(${task.id}, '${nextColumn}')">${capitalize(nextColumn)} →</button>` : '<span>✅</span>'}
                 </div>
             `;
+
             column.appendChild(taskElement);
         });
     });
 }
+
+// Helper function to capitalize the first letter of a string
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).replace('-', ' ');
+}
+
 
 // AI-driven task prioritization
 function prioritizeTasks() {
