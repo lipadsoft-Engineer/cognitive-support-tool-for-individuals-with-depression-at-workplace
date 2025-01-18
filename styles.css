@@ -1,0 +1,127 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+#task-board {
+    flex: 3;
+}
+
+aside {
+    flex: 1;
+}
+
+#add-task {
+    margin-bottom: 1rem;
+}
+
+#new-task-input {
+    padding: 0.5rem;
+    width: 70%;
+}
+
+#add-task-btn {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#columns {
+    display: flex;
+    gap: 1rem;
+}
+
+.column {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.column h2 {
+    margin-bottom: 1rem;
+}
+
+.task {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.task-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.task-actions button {
+    padding: 0.25rem 0.5rem;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+#mood-tracker, #notifications {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#mood-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mood-btn {
+    padding: 0.5rem 1rem;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.mood-btn.active {
+    background-color: #333;
+    color: #fff;
+}
+
+#notification-list {
+    list-style-type: none;
+}
+
+#notification-list li {
+    background-color: #ffe6e6;
+    border: 1px solid #ffcccc;
+    border-radius: 3px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
