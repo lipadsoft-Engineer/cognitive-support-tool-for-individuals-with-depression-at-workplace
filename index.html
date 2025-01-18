@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Task Management App</h1>
+    </header>
+    <main>
+        <section id="task-board">
+            <div id="add-task">
+                <input type="text" id="new-task-input" placeholder="Enter new task">
+                <button id="add-task-btn">Add Task</button>
+            </div>
+            <div id="columns">
+                <div class="column" id="todo">
+                    <h2>To-Do</h2>
+                    <div class="task-list"></div>
+                </div>
+                <div class="column" id="in-progress">
+                    <h2>In Progress</h2>
+                    <div class="task-list"></div>
+                </div>
+                <div class="column" id="done">
+                    <h2>Done</h2>
+                    <div class="task-list"></div>
+                </div>
+            </div>
+        </section>
+        <aside>
+            <section id="mood-tracker">
+                <h2>Mood Tracker</h2>
+                <div id="mood-buttons">
+                    <button class="mood-btn" data-mood="happy">😊 Happy</button>
+                    <button class="mood-btn" data-mood="neutral">😐 Neutral</button>
+                    <button class="mood-btn" data-mood="sad">😢 Sad</button>
+                </div>
+            </section>
+            <section id="notifications">
+                <h2>Notifications</h2>
+                <ul id="notification-list"></ul>
+            </section>
+        </aside>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
