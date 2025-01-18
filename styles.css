@@ -113,10 +113,12 @@ aside {
     margin-bottom: 1rem;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+#mood-tracker{
+    position: relative;
+}
 
 #mood-buttons {
     display: flex;
-    /* justify-content: space-between; */
 }
 
 .mood-btn {
@@ -133,6 +135,37 @@ aside {
     background-color: #333;
     color: #fff;
 }
+
+#popup {
+    display: none;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#popup .popup-btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #4c56af;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#popup .popup-btn:hover {
+    background-color: #4553a0;
+}
+
 
 #notification-list {
     list-style-type: none;

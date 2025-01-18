@@ -89,6 +89,47 @@ function calculateTaskScore(task) {
     return score;
 }
 
+// mood tracking
+function showMoodPopup() {
+    const popup = document.getElementById('popup');
+    const saveButton = document.getElementById('save-mood-btn');
+    const closeButton = document.getElementById('close-popup-btn');
+
+    popup.style.display = 'block';
+
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 30000);
+
+    closeButton.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    saveButton.addEventListener('click', () => {
+        const moodSelect = document.getElementById('mood-select');
+        const selectedMood = moodSelect.value;
+
+        console.log(`Mood saved: ${selectedMood}`);
+
+        popup.style.display = 'none';
+    });
+}
+// Mood Tracking
+let currentMood = null;
+
+function logMood(mood) {
+    currentMood = mood;
+    document.querySelectorAll('.mood-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    document.querySelector(`.mood-btn[data-mood="${mood}"]`).classList.add('active');
+}
+
+
+// Trigger the mood popup every hour
+setInterval(showMoodPopup, 3600000);
+showMoodPopup();
+
 // Reminders & Notifications
 function checkNotifications() {
     const notificationList = document.getElementById('notification-list');
@@ -106,16 +147,6 @@ function checkNotifications() {
     });
 }
 
-// Mood Tracking
-let currentMood = null;
-
-function logMood(mood) {
-    currentMood = mood;
-    document.querySelectorAll('.mood-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    document.querySelector(`.mood-btn[data-mood="${mood}"]`).classList.add('active');
-}
 
 // Event Listeners
 document.getElementById('add-task-btn').addEventListener('click', () => {

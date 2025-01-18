@@ -47,6 +47,7 @@
                     <button class="mood-btn" data-mood="neutral">😐 Neutral</button>
                     <button class="mood-btn" data-mood="sad">😢 Sad</button>
                 </div>
+                
             </section>
             <section id="notifications">
                 <h2>Notifications</h2>
@@ -54,6 +55,19 @@
             </section>
         </aside>
     </main>
+
+    <div id="popup" >
+        <h3>How are you feeling right now?</h3>
+        <select id="mood-select">
+            <option value="Happy">Happy 😊</option>
+            <option value="Sad">Sad 😢</option>
+            <option value="Neutral">Neutral 😐</option>
+            <option value="Stressed">Stressed 😟</option>
+            <option value="Excited">Excited 🤩</option>
+        </select>
+        <button id="save-mood-btn" class="popup-btn">Save Mood</button>
+        <button id="close-popup-btn" class="popup-btn">Close</button>
+    </div>
 
     <footer>
         <p>&copy;2024, MindLift</p>
