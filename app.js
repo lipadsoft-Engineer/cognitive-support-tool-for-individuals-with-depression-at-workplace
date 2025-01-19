@@ -61,7 +61,6 @@ function renderTasks() {
     });
 }
 
-// Capitalize the first letter of a string
 function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).replace('-', ' ');
 }
@@ -139,7 +138,6 @@ function showMoodInsight(mood) {
     }, 15000); 
 }
 
-// Mood Tracking
 let currentMood = null;
 
 function logMood(mood) {
@@ -177,6 +175,58 @@ function checkNotifications() {
     });
 }
 
+let workTime = 0; 
+let timerDisplay = document.getElementById('time-display');
+let breakPopup = document.getElementById('break-popup');
+
+function startWorkTimer() {
+    setInterval(() => {
+        workTime++;
+
+        updateTimerDisplay();
+
+        if (workTime % 60 === 0) { // Every hour
+            showBreakPopup();
+        }
+    }, 60000); 
+}
+
+// Update the timer display
+function updateTimerDisplay() {
+    let minutes = Math.floor(workTime / 60);
+    let seconds = workTime % 60;
+    
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    timerDisplay.textContent = `${minutes}:${seconds}`; 
+}
+
+function showBreakPopup() {
+    breakPopup.style.display = 'block';
+    
+    setTimeout(() => {
+        breakPopup.style.display = 'none'; 
+    }, 5000);
+}
+
+window.onload = () => {
+    const closePopupBtn = document.getElementById('close-popup-btn');
+    
+    if (!closePopupBtn) {
+        console.log('Close button not found');
+        return;
+    }
+
+   
+
+    closePopupBtn.addEventListener('click', () => {
+        console.log('close btn clicked');
+        breakPopup.style.display = 'none';  
+    });
+
+    startWorkTimer();
+};
 
 // Event Listeners
 document.getElementById('add-task-btn').addEventListener('click', () => {
