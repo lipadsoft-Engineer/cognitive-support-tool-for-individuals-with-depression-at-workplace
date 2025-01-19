@@ -24,6 +24,8 @@ function addTask(title, dueDate) {
 function moveTask(taskId, newStatus) {
     const task = tasks.find(t => t.id === taskId);
     if (task) {
+        const audio = new Audio('./media/done.wav'); 
+        audio.play();
         task.status = newStatus;
         renderTasks();
         prioritizeTasks();
@@ -152,22 +154,26 @@ setInterval(showMoodPopup, 3600000);
 showMoodPopup();
 
 
-// Reminders & Notifications
+// Notifications and reminders
+let notifiedTasks = [];
+
 function checkNotifications() {
     const notificationList = document.getElementById('notification-list');
-    notificationList.innerHTML = '';
-    
     const currentTime = new Date();
     const overdueTasks = tasks.filter(task => 
-        task.dueDate < currentTime && task.status !== 'done'
+        task.dueDate < currentTime && task.status !== 'done' && !notifiedTasks.includes(task.id)
     );
 
     overdueTasks.forEach(task => {
         const li = document.createElement('li');
         li.textContent = `Task "${task.title}" is overdue!`;
+
+        notificationList.appendChild(li);
+        
         const audio = new Audio('./media/notification.wav'); 
         audio.play();
-        notificationList.appendChild(li);
+
+        notifiedTasks.push(task.id);
     });
 }
 
@@ -185,7 +191,10 @@ document.getElementById('add-task-btn').addEventListener('click', () => {
         dueDateInput.value = '';
         taskInput.focus();
     } else {
+        
         alert('Please enter both a task and a valid due date.');
+        const audio = new Audio('./media/notification.wav'); 
+        audio.play();
     }
 });
 
