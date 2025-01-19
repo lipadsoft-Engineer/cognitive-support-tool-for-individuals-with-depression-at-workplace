@@ -116,10 +116,10 @@ function showMoodPopup() {
 }
 
 const moodInsights = {
-    "Happy": "You’re feeling positive and content. Keep doing activities that bring you joy and express gratitude.",
-    "Sad": "You may feel low today. Take a break, talk to someone, or engage in something uplifting like music or a walk.",
-    "Neutral": "You’re in a balanced state. Try something creative or engaging, or rest to recharge.",
-    "Stressed": "You might feel overwhelmed. Take deep breaths, prioritize tasks, and take breaks when needed.",
+    "Happy": "A happy mood increases productivity, creativity, and collaboration. Celebrate small wins and focusing on tasks that bring you satisfaction.",
+    "Sad": "YSadness can lead to decreased motivation, lack of focus, and difficulty engaging in tasks. Take small breaks to manage stress. Try completing simple tasks that give a sense of accomplishment.",
+    "Neutral": "A neutral mood might make it hard to feel connected to work or colleagues, leading to a sense of detachment.",
+    "Stressed": "Stress can cause burnout, difficulty concentrating, and physical symptoms like fatigue. Practice mindfulness techniques (like deep breathing) to calm the mind. ",
     "Excited": "You’re full of energy. Channel this excitement into productive tasks or fun activities to keep the momentum going."
 };
 
@@ -139,7 +139,6 @@ function showMoodInsight(mood) {
 }
 
 let currentMood = null;
-
 function logMood(mood) {
     currentMood = mood;
     document.querySelectorAll('.mood-btn').forEach(btn => {
@@ -185,10 +184,10 @@ function startWorkTimer() {
 
         updateTimerDisplay();
 
-        if (workTime % 60 === 0) { // Every hour
+        if (workTime % 3600 === 0) { // Every hour
             showBreakPopup();
         }
-    }, 60000); 
+    }, 1000); 
 }
 
 // Update the timer display
