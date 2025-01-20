@@ -29,6 +29,7 @@ function moveTask(taskId, newStatus) {
         task.status = newStatus;
         renderTasks();
         prioritizeTasks();
+        completeTask(task)
     }
 }
 
@@ -226,6 +227,39 @@ window.onload = () => {
 
     startWorkTimer();
 };
+
+
+// gamification feature
+let points = 0;
+
+function completeTask(taskId) {
+    const task = tasks.find(t => t.id === taskId);
+    console.log('beforee ifs')
+    if (task && task.status !== 'done') {
+        task.status = 'done';
+        renderTasks(); 
+        console.log('I reached heeeeree')
+        awardPoints(10); 
+    }
+}
+
+function awardPoints(amount) {
+    points += amount; 
+    document.getElementById('points').textContent = points; 
+    showRewardMessage(`You earned ${amount} points! 🎉`);
+}
+
+function showRewardMessage(message) {
+    const rewardPopup = document.createElement('div');
+    rewardPopup.className = 'reward-popup';
+    rewardPopup.textContent = message;
+    document.body.appendChild(rewardPopup);
+
+    setTimeout(() => {
+        rewardPopup.remove(); 
+    }, 3000);
+}
+
 
 // Event Listeners
 document.getElementById('add-task-btn').addEventListener('click', () => {
