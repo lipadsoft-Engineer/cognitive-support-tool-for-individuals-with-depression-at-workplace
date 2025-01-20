@@ -251,3 +251,22 @@ footer{
 #close-popup-btn:hover {
     background-color: #4553a0;
 }
+
+.support-links {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.support-links button {
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #4cacaf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.support-links button:hover {
+    background-color: #266169;
+}
