@@ -252,6 +252,8 @@ footer{
     background-color: #4553a0;
 }
 
+
+
 .support-links {
     margin-top: 15px;
     text-align: center;
@@ -272,6 +274,19 @@ footer{
 }
 
 
+#gamification {
+    position: fixed;
+    bottom: 2.8rem;
+    z-index: 2;
+    border: 1px solid black;
+    width:fit-content;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 1px;
+}
+
 .reward-popup {
     position: fixed;
     bottom: 20px;
@@ -289,4 +304,76 @@ footer{
     10% { opacity: 1; transform: translateY(0); }
     90% { opacity: 1; transform: translateY(0); }
     100% { opacity: 0; transform: translateY(20px); }
+}
+
+
+
+
+/* Media Queries */
+/* For tablets and smaller desktops */
+@media screen and (max-width: 1024px) {
+    main {
+        flex-direction: column;
+    }
+
+    #task-board, aside {
+        width: 100%;
+    }
+
+    #columns {
+        flex-direction: column;
+    }
+
+    .column {
+        margin-bottom: 1rem;
+    }
+}
+
+/* For mobile devices */
+@media screen and (max-width: 768px) {
+    main {
+        padding: 1rem;
+    }
+
+    #new-task-input {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    #add-task-btn {
+        width: 100%;
+    }
+
+    .task-actions {
+        flex-direction: column;
+    }
+
+    .task-actions button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    #mood-buttons {
+        flex-direction: column;
+    }
+
+    .mood-btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* For very small devices */
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .column h2 {
+        font-size: 1.2rem;
+    }
+
+    .task h3 {
+        font-size: 1rem;
+    }
 }
