@@ -277,11 +277,12 @@ footer{
 }
 
 
+
+
 #gamification {
     position: fixed;
     bottom: 3rem;
     z-index: 2;
-    /* border: 1px solid black; */
     width:fit-content;
     padding: 10px 15px;
     border-radius: 5px;
@@ -293,7 +294,8 @@ footer{
 .reward-popup {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
+    z-index: 3;
     background-color: #4caf50;
     color: white;
     padding: 15px 20px;
