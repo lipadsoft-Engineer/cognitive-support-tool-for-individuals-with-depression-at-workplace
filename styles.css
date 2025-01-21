@@ -192,7 +192,6 @@ footer{
 #timer {
     position: relative;
     padding: 20px 20px;
-    background-color: red;
 }
 
 #timer .count{
@@ -260,6 +259,7 @@ footer{
 .support-links {
     margin-top: 15px;
     text-align: center;
+    margin-bottom: 7rem;
 }
 
 .support-links button {
@@ -279,9 +279,9 @@ footer{
 
 #gamification {
     position: fixed;
-    bottom: 2.8rem;
+    bottom: 3rem;
     z-index: 2;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width:fit-content;
     padding: 10px 15px;
     border-radius: 5px;
@@ -338,9 +338,19 @@ footer{
         padding: 1rem;
     }
 
-    #new-task-input {
+    #columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #new-task-input, #due-date-input {
         width: 100%;
         margin-bottom: 0.5rem;
+    }
+
+    .date-label{
+        border: none;
+        padding-left: 0;
     }
 
     #add-task-btn {
