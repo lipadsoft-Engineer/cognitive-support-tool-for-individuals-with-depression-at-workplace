@@ -185,7 +185,7 @@ function startWorkTimer() {
 
         updateTimerDisplay();
 
-        if (workTime % 3600 === 0) { // Every hour
+        if (workTime % 5 === 0) { // Every hour
             showBreakPopup();
         }
     }, 1000); 
@@ -209,24 +209,6 @@ function showBreakPopup() {
         breakPopup.style.display = 'none'; 
     }, 5000);
 }
-
-window.onload = () => {
-    const closePopupBtn = document.getElementById('close-popup-btn');
-    
-    if (!closePopupBtn) {
-        console.log('Close button not found');
-        return;
-    }
-
-   
-
-    closePopupBtn.addEventListener('click', () => {
-        console.log('close btn clicked');
-        breakPopup.style.display = 'none';  
-    });
-
-    startWorkTimer();
-};
 
 
 // gamification feature
