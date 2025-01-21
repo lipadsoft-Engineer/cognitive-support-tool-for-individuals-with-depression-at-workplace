@@ -30,6 +30,10 @@ function moveTask(taskId, newStatus) {
         renderTasks();
         prioritizeTasks();
         completeTask(task)
+
+        if (newStatus === 'done') { 
+            completeTask(taskId);
+        }
     }
 }
 
@@ -182,13 +186,12 @@ let breakPopup = document.getElementById('break-popup');
 function startWorkTimer() {
     setInterval(() => {
         workTime++;
-
         updateTimerDisplay();
-
-        if (workTime % 5 === 0) { // Every hour
-            showBreakPopup();
-        }
     }, 1000); 
+
+    setInterval(() => {
+        showBreakPopup();
+    }, 60 * 60 * 1000); //every hour
 }
 
 // Update the timer display
@@ -207,8 +210,33 @@ function showBreakPopup() {
     
     setTimeout(() => {
         breakPopup.style.display = 'none'; 
-    }, 5000);
+    }, 10000);
 }
+
+window.onload = () => {
+    startWorkTimer();
+};
+
+// mindful exercise
+const mindfulPopup = document.getElementById('mindful-popup');
+const closeMindfulPopupBtn = document.getElementById('close-mindful-popup-btn');
+
+function showMindfulPopup() {
+    mindfulPopup.style.display = 'block';
+
+    setTimeout(() => {
+        mindfulPopup.style.display = 'none';
+    }, 30000);
+}
+
+closeMindfulPopupBtn.addEventListener('click', () => {
+    mindfulPopup.style.display = 'none';
+});
+
+setInterval(() => {
+    showMindfulPopup();
+}, 25 * 60 * 1000); //every 25 minutes
+
 
 
 // gamification feature
@@ -216,12 +244,9 @@ let points = 0;
 
 function completeTask(taskId) {
     const task = tasks.find(t => t.id === taskId);
-    console.log('beforee ifs')
-    if (task && task.status !== 'done') {
-        task.status = 'done';
-        renderTasks(); 
-        console.log('I reached heeeeree')
-        awardPoints(10); 
+    if (task && task.status === 'done') { 
+        console.log('Completing task...');
+        awardPoints(10);
     }
 }
 
@@ -241,7 +266,6 @@ function showRewardMessage(message) {
         rewardPopup.remove(); 
     }, 3000);
 }
-
 
 // Event Listeners
 document.getElementById('add-task-btn').addEventListener('click', () => {
