@@ -1,15 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
+
   .container {
     background: white;
     padding: 20px;
@@ -19,21 +8,21 @@ body {
     text-align: center;
   }
   
-  h1 {
+  .container h1 {
     margin-bottom: 20px;
   }
   
-  form {
+  .container  form {
     display: flex;
     flex-direction: column;
   }
   
-  label {
+  .container  label {
     margin: 10px 0 5px;
     font-weight: bold;
   }
   
-  select, input, button {
+  .container  select, input, button {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -41,18 +30,18 @@ body {
     font-size: 16px;
   }
   
-  button {
+  .container  button {
     background-color: #007bff;
     color: white;
     border: none;
     cursor: pointer;
   }
   
-  button:hover {
+  .container  button:hover {
     background-color: #0056b3;
   }
   
-  .suggestion {
+  .container  .suggestion {
     margin-top: 20px;
     padding: 10px;
     background-color: #e9f5ff;
@@ -60,18 +49,18 @@ body {
     color: #007bff;
   }
   
-  table {
+  .container  table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
   }
   
-  th, td {
+  .container  th, td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
   }
   
-  th {
+  .container  th {
     background-color: #f8f9fa;
   }
