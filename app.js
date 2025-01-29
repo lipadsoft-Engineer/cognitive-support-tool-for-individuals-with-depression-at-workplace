@@ -191,7 +191,7 @@ function startWorkTimer() {
 
     setInterval(() => {
         showBreakPopup();
-    }, 60 * 60 * 1000); //every hour
+    }, 2 * 60 * 60 * 1000); //every 2 hours
 }
 
 // Update the timer display
