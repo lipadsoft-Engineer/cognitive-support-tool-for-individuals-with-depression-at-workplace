@@ -129,6 +129,8 @@ aside {
     cursor: pointer;
     margin: .1rem;
     font-size: .9rem;
+    text-decoration: none;
+    width: 100%;
 }
 
 .mood-btn.active {
