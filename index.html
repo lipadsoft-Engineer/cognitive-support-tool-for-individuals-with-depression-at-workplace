@@ -6,6 +6,7 @@
     <link rel="icon" href="./images/MindLift-logo.png">
     <title>MindLift | Kanban</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mood.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -106,6 +107,42 @@
             <p>Helps in focus</p>
         </div>
     </div>
+
+    <div class="container">
+        <h1>Mood Tracker</h1>
+        <form id="moodForm">
+          <label for="mood">How are you feeling today?</label>
+          <select id="mood" name="mood" required>
+            <option value="happy">😊 Happy</option>
+            <option value="neutral">😐 Neutral</option>
+            <option value="sad">😢 Sad</option>
+            <option value="overwhelmed">😩 Overwhelmed</option>
+            <option value="angry">😠 Angry</option>
+          </select>
+    
+          <label for="context">What might be influencing your mood? (Optional)</label>
+          <input type="text" id="context" name="context" placeholder="e.g., stressful meeting, positive feedback">
+    
+          <button type="submit">Submit</button>
+          <a href="index.html">Back</a>
+        </form>
+    
+        <div id="suggestion" class="suggestion"></div>
+    
+        <h2>Mood History</h2>
+        <table id="moodHistory">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Mood</th>
+              <th>Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+          </tbody>
+        </table>
+      </div>
 
     <footer>
         <p>&copy;2024, MindLift</p>
