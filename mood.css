@@ -1,5 +1,6 @@
 
-  .container {
+  #container {
+    margin-inline: auto;
     background: white;
     padding: 20px;
     border-radius: 8px;
@@ -8,21 +9,21 @@
     text-align: center;
   }
   
-  .container h1 {
+  #container h1 {
     margin-bottom: 20px;
   }
   
-  .container  form {
+  #container  form {
     display: flex;
     flex-direction: column;
   }
   
-  .container  label {
+  #container  label {
     margin: 10px 0 5px;
     font-weight: bold;
   }
   
-  .container  select, input, button {
+  #container  select, input, button {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
@@ -30,18 +31,18 @@
     font-size: 16px;
   }
   
-  .container  button {
+  #container  button {
     background-color: #007bff;
     color: white;
     border: none;
     cursor: pointer;
   }
   
-  .container  button:hover {
+  #container  button:hover {
     background-color: #0056b3;
   }
   
-  .container  .suggestion {
+  #container  .suggestion {
     margin-top: 20px;
     padding: 10px;
     background-color: #e9f5ff;
@@ -49,18 +50,18 @@
     color: #007bff;
   }
   
-  .container  table {
+  #container  table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
   }
   
-  .container  th, td {
+  #container  th, td {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
   }
   
-  .container  th {
+  #container  th {
     background-color: #f8f9fa;
   }
