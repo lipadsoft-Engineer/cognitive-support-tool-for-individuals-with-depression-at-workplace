@@ -26,6 +26,25 @@ header img{
     margin: 0 1rem;
 }
 
+header .links{
+    display: flex;
+    justify-content: right;
+    align-items: baseline;
+    justify-self: end;
+    margin-inline: auto;
+    width: 90%;
+}
+
+header .links .nav-btn{
+    padding: 0.3rem 0.5rem;
+    background-color: #1c1e2b;
+}
+
+header .links .nav-btn img{
+    width: 1rem;
+    height: 1rem;
+}
+
 main {
     display: flex;
     padding: 2rem;
