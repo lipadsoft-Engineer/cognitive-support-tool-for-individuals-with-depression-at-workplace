@@ -36,13 +36,21 @@ header .links{
 }
 
 header .links .nav-btn{
-    padding: 0.3rem 0.5rem;
+    padding: 0.3rem 0rem;
+    margin: 0 0.3rem;
     background-color: #1c1e2b;
+    width: 40px;
+    border: none;
+}
+header .links #help img{
+    width: 2rem;
+    height: 2rem;
 }
 
 header .links .nav-btn img{
-    width: 1rem;
-    height: 1rem;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-inline: auto;
 }
 
 main {
