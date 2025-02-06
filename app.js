@@ -224,7 +224,8 @@ const durationInput = document.getElementById('popup-duration');
 const intervalInput = document.getElementById('popup-interval'); 
 
 let popupDuration = 30000; 
-let popupInterval = 25 * 60 * 1000; 
+let popupInterval = 2 * 60 * 60 * 1000; 
+let moodTrackFreq = 25 * 60 * 1000;
 
 function showMindfulPopup() {
     mindfulPopup.style.display = 'block';
@@ -241,7 +242,8 @@ closeMindfulPopupBtn.addEventListener('click', () => {
 // Function to update values based on user input
 function updateSettings() {
     popupDuration = parseInt(durationInput.value) * 1000 || 30000; 
-    popupInterval = parseInt(intervalInput.value) * 60 * 1000 || 25 * 60 * 1000; 
+    popupInterval = parseInt(intervalInput.value) * 60 * 1000 || 2 * 60 * 60 * 1000; 
+    moodTrackFreq = parseInt(mindfulPopup.value) * 60 * 100 || 25 * 60 * 1000
 
     // Restart the interval with new settings
     clearInterval(mindfulInterval);
@@ -249,8 +251,6 @@ function updateSettings() {
 }
 
 let mindfulInterval = setInterval(showMindfulPopup, popupInterval);
-document.getElementById('save-settings').addEventListener('click', updateSettings).toggleSettings();
-
 
 
 
