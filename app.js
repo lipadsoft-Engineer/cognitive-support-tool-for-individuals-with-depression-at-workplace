@@ -321,6 +321,10 @@ function updateHistoryTable() {
   });
 }
 
+function toggleSettings() {
+    document.getElementById("settingsPanel").classList.toggle("open");
+}
+
 // Event Listeners
 document.getElementById('add-task-btn').addEventListener('click', () => {
     const taskInput = document.getElementById('new-task-input');
