@@ -384,6 +384,16 @@ footer{
     border-radius: 4px;
 }
 
+.toggle-btn-cls{
+    background: #0099ff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 8px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
 
 /* Media Queries */
 /* For tablets and smaller desktops */
