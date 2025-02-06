@@ -220,22 +220,37 @@ window.onload = () => {
 // mindful exercise
 const mindfulPopup = document.getElementById('mindful-popup');
 const closeMindfulPopupBtn = document.getElementById('close-mindful-popup-btn');
+const durationInput = document.getElementById('popup-duration'); 
+const intervalInput = document.getElementById('popup-interval'); 
+
+let popupDuration = 30000; 
+let popupInterval = 25 * 60 * 1000; 
 
 function showMindfulPopup() {
     mindfulPopup.style.display = 'block';
 
     setTimeout(() => {
         mindfulPopup.style.display = 'none';
-    }, 30000);
+    }, popupDuration);
 }
 
 closeMindfulPopupBtn.addEventListener('click', () => {
     mindfulPopup.style.display = 'none';
 });
 
-setInterval(() => {
-    showMindfulPopup();
-}, 25 * 60 * 1000); //every 25 minutes
+// Function to update values based on user input
+function updateSettings() {
+    popupDuration = parseInt(durationInput.value) * 1000 || 30000; 
+    popupInterval = parseInt(intervalInput.value) * 60 * 1000 || 25 * 60 * 1000; 
+
+    // Restart the interval with new settings
+    clearInterval(mindfulInterval);
+    mindfulInterval = setInterval(showMindfulPopup, popupInterval);
+}
+
+let mindfulInterval = setInterval(showMindfulPopup, popupInterval);
+document.getElementById('save-settings').addEventListener('click', updateSettings).toggleSettings();
+
 
 
 
