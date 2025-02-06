@@ -14,7 +14,7 @@
         <img src="./images/MindLift-logo.png" alt="">
         <h1>MindLift</h1>
         <div class="links">
-            <button id="settings" class="nav-btn"><img src="./images/icons/icons8-settings.svg" alt=""></button>
+            <button id="settings" class="nav-btn" onclick="toggleSettings()"><img src="./images/icons/icons8-settings.svg" alt=""></button>
             <button id="help" class="nav-btn"><img src="./images/icons/icons8-question.gif" alt=""></button>
         </div>
     </header>
@@ -145,6 +145,37 @@
           </tbody>
         </table>
       </div>
+
+      <div class="settings-panel" id="settingsPanel">
+        <button class="toggle-btn" onclick="toggleSettings()">X</button>
+        <h2>Settings</h2>
+        <div class="settings-option">
+            <label for="popupInterval">Popup Interval (minutes):</label>
+            <input type="number" id="popupInterval" min="5" max="120" value="30">
+        </div>
+        <div class="settings-option">
+            <label for="popupDuration">Popup Duration (seconds):</label>
+            <input type="number" id="popupDuration" min="3" max="60" value="10">
+        </div>
+        <div class="settings-option">
+            <label for="moodTracking">Mood Tracking Frequency (hours):</label>
+            <input type="number" id="moodTracking" min="1" max="12" value="1">
+        </div>
+        <div class="settings-option">
+            <label>
+                <input type="checkbox" id="enableNotifications" checked>
+                Enable Notifications
+            </label>
+        </div>
+        <div class="settings-option">
+            <label>
+                <input type="checkbox" id="soundVibration" checked>
+                Enable Sound & Vibration
+            </label>
+        </div>
+
+        <button class="toggle-btn-cls" onclick="toggleSettings()">X</button>
+    </div>
 
     <footer>
         <p>&copy;2024, MindLift</p>
