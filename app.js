@@ -85,7 +85,7 @@ function calculateTaskScore(task) {
     let score = 0;
     const daysUntilDue = (task.dueDate - new Date()) / (1000 * 60 * 60 * 24);
     
-    if (daysUntilDue < 0) score += 100; // Overdue tasks get highest priority
+    if (daysUntilDue < 0) score += 100;
     else if (daysUntilDue < 1) score += 75;
     else if (daysUntilDue < 3) score += 50;
     else if (daysUntilDue < 7) score += 25;
@@ -191,7 +191,7 @@ function startWorkTimer() {
 
     setInterval(() => {
         showBreakPopup();
-    }, 2 * 60 * 60 * 1000); //every 2 hours
+    }, 2 * 60 * 60 * 1000); 
 }
 
 // Update the timer display
