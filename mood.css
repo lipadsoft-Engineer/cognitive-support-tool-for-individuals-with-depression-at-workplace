@@ -10,6 +10,10 @@
     margin-bottom: 7rem;
   }
   
+  html{
+    scroll-behavior: smooth;
+  }
+  
   #container h1 {
     margin-bottom: 20px;
   }
